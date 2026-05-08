@@ -182,3 +182,109 @@
     border-right-color: var(--border);
   }
 }
+
+.spam-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 0%, #2a0a3a 0%, #0a0010 70%);
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.spam-header {
+  text-align: center;
+  padding: 32px 16px 8px;
+  z-index: 2;
+}
+
+.spam-header h1 {
+  margin: 0;
+  font-size: clamp(28px, 6vw, 48px);
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff3ea5, #ffd23f, #ff3ea5);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 2s linear infinite;
+}
+
+.spam-header p {
+  margin: 8px 0 4px;
+  opacity: 0.85;
+}
+
+.spam-counter {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.spam-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.spam-button {
+  position: relative;
+  z-index: 3;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  padding: 28px 56px;
+  border-radius: 999px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #ff3ea5, #ff6b3e);
+  box-shadow: 0 12px 40px rgba(255, 62, 165, 0.5),
+    0 0 0 4px rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.08s ease;
+  user-select: none;
+}
+
+.spam-button:active {
+  transform: scale(0.94);
+}
+
+.flying-emoji {
+  position: absolute;
+  bottom: -60px;
+  pointer-events: none;
+  animation-name: fly-up;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+  z-index: 1;
+}
+
+@keyframes fly-up {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--drift, 0), -110vh) rotate(360deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
